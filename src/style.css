@@ -1,0 +1,10 @@
+/*style.css*/
+#footer{
+	position: fixed;
+	bottom:0px;
+}
+.write{
+	position: fixed;
+	bottom:20px;
+	right:20px;
+}

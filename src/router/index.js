@@ -6,7 +6,8 @@ import Chat from '../view/Chat.vue'
 const routes = [
   { path: '/', component: Home },
   { path: '/login', component: Login },
-  { path: '/chat' , component: Chat}
+  { path: '/chat' , component: Chat},
+  { path: '/chat/:uid' , component: Chat}
 ]
 const router = createRouter({
   // 4. Provide the history implementation to use. We are using the hash history for simplicity here.

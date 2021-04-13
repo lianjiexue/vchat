@@ -56,7 +56,8 @@ const state = reactive({ user_id: 0 ,show:false,content:"",mood:{
 			user:{
 				username:"风清扬",
 				head:"https://bulma.io/images/placeholders/96x96.png",
-				title:"见过就好"
+				title:"见过就好",
+				uid:1
 			},
 			data:{
 				content:"北国风光千里雪飘，望长城内外唯余茫茫\

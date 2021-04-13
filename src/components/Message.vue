@@ -18,7 +18,7 @@
 	    </div>
 	  </div>
 	   <footer class="card-footer">
-	   	<router-link to="/chat" class="card-footer-item">回复</router-link>
+	   	<router-link :to="/chat/ + mood.user.uid " class="card-footer-item">回复</router-link>
 	   	<router-link to="/report" class="card-footer-item">举报</router-link>
 	   	<router-link to="/chat" class="card-footer-item">收藏</router-link>
 	  </footer>

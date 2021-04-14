@@ -13,14 +13,21 @@
 	      </div>
 	    </div>
 
-	    <div class="content">{{mood.data.content}}
-	      <time datetime="2016-1-1">{{mood.data.datetime}}</time>
+	    <div class="content">
+	    	<span>
+	    	{{mood.data.content}}
+	    	</span>
+	    	<br>
+	    	<div style="text-align: right;">
+	    		<time datetime="2016-1-1" > {{mood.data.datetime}}</time>
+	    	</div>
+	      
 	    </div>
 	  </div>
 	   <footer class="card-footer">
 	   	<router-link :to="/chat/ + mood.user.uid " class="card-footer-item">回复</router-link>
-	   	<router-link to="/report" class="card-footer-item">举报</router-link>
-	   	<router-link to="/chat" class="card-footer-item">收藏</router-link>
+	   	<a href="javascript:void(0)" class="card-footer-item">举报</a>
+	   	<a href="javascript:void(0)" class="card-footer-item">屏蔽</a>
 	  </footer>
 	</div>
 </template>

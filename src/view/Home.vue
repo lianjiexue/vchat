@@ -62,7 +62,7 @@ const state = reactive({ user_id: 0 ,show:false,content:"",mood:{
 			data:{
 				content:"北国风光千里雪飘，望长城内外唯余茫茫\
 				大河上下顿失涛涛",
-				datetime:"11:09 PM - 1 Jan 2016",
+				datetime:"2021.4.14 08:10:24",
 				id:1,
 			}
 		}})

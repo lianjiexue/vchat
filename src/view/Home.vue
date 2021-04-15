@@ -1,7 +1,7 @@
 <template>
-	<div id="app">
+	<div id="home">
+			<Nav />
 			<Message :mood="state.mood"/>
-
 			<!-- 获取下一条消息 -->
 
 			<button class="button is-danger" style="margin-top:120px" @click="next">下一条</button>
@@ -29,6 +29,7 @@
 
 import Login from './Login.vue'
 import Message from '../components/Message.vue'
+import Nav from '../components/Nav.vue'
 import Footer from './Footer.vue'
 import { defineProps, reactive, onMounted } from 'vue'
 import {useStore} from 'vuex'

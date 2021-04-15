@@ -1,5 +1,11 @@
 <template>
 	<div class="messages">
+		<nav class="navbar" role="navigation" aria-label="main navigation">
+		    <div class="navbar-brand">
+		      <router-link to="/" class="navbar-item"> <img src="../assets/bulma-logo.png" width="112" height="28"></router-link>
+		     
+		    </div>
+		</nav>
 		<div v-for="message in state.messages">
 			<div class="msg-datetime" style="text-align: center;"> {{message.datetime}}</div>
 			<template v-if="message.to_id == state.to_id">

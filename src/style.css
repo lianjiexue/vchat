@@ -8,6 +8,14 @@
 	bottom:20px;
 	right:20px;
 }
+#side{
+	position: fixed;
+    z-index: 999;
+    background: #fafafa;
+    right: 0px;
+    height: 100%;
+    top: 0;
+}
 .v-textarea{
 		display: block;
 	    max-width: 100%;

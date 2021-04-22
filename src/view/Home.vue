@@ -36,7 +36,16 @@ import {useStore} from 'vuex'
 import fetPost from '../api.js'
 
 onMounted(()=>{
-	state.user_id = 12
+	console.log("程序初始化完成，调用消息服务器")
+	var uid = localStorage.getItem("uid")
+	state.user_id = uid;
+	var data = new FormData();
+		data.append("uid",uid)
+	//获取一条别人发的心情消息
+	fetPost("/api/mood/one",data)
+	.then(res=>{
+		console.log(res)
+	})
 })
 const showModal = ()=>{
 	state.show = true
@@ -45,6 +54,14 @@ const closeModal = ()=>{
 	state.show = false
 }
 const send = ()=>{
+	console.log("发表心情")
+	var formdata = new FormData();
+		formdata.append("uid",state.user_id)
+		formdata.append("content", state.content)
+		fetPost("/api/mood/add",formdata)
+		.then(res=>{
+			console.log(res)
+		})
 	state.show = false
 }
 const next = ()=>{

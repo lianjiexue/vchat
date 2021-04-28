@@ -6,7 +6,7 @@
 		     <b style="margin-top:15px;">{{state.toInfo.nickname}}</b>
 		    </div>
 		</nav>
-		<div v-for="message in state.messages">
+		<div v-for="message in messages">
 			<div class="msg-datetime" style="text-align: center;"> {{message.datetime}}</div>
 			<template v-if="message.to_id == state.to_id">
 				<div class="msg-content" style="text-align: right;"> {{message.content}}</div>
@@ -29,16 +29,17 @@
 	import {useRoute} from 'vue-router'
 	import {useStore}  from 'vuex'
 
-	const state = reactive({to_id:null,content:'',messages:[],userInfo:{},toInfo:{}})
+	const state = reactive({to_id:null,content:'',userInfo:{},toInfo:{}})
 	const store = useStore();
-
+	
 	const messages = computed(()=>{
-		var messages = new Array();
-		store.state.messages.map((key,value)=>{
-			console.log(key.vaue)
-		})
-		return message_id
-	})
+			var msgs = new Array()
+			console.log("消息读入")
+			store.state.messages.map((value,key)=>{
+				msgs.push(value)
+			})
+			return msgs;
+	});
 	const route = useRoute();
 	onMounted(()=>{
 		console.log("执行获取用户");
@@ -67,8 +68,16 @@
 			msg.to_id   = state.to_id;
 			msg.content = state.content;
 			msg.datetime = getDateTime()
-			state.messages.push(msg)
-		console.log(state.messages)
+			store.commit("pushMessage",{message:msg})
+			// 通过http发送到服务器
+		var formdata = new FormData();
+			formdata.append("from_id",msg.from_id)
+			formdata.append("to_id",msg.to_id)
+			formdata.append("content",msg.content)
+			fetPost("api/message/new",formdata)
+			.then(res=>{
+				console.log(res)
+			})
 			state.content = ''
 	}
 </script>

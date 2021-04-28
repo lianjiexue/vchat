@@ -1,10 +1,10 @@
 <template>
 	<div id="home">
 			<Nav />
-			<Message :mood="state.mood"/>
+			<Message :mood="state.mood" v-if="state.mood"/>
 			<!-- 获取下一条消息 -->
 
-			<button class="button is-danger" style="margin-top:120px" @click="next">下一条</button>
+			<button class="button is-danger" style="margin-top:120px;margin-left:130px;" @click="next">下一条</button>
 
 			<!-- 消息弹窗 -->
 			<div class="modal" style="display: block" v-if="state.show">
@@ -37,6 +37,10 @@ import fetPost from '../api.js'
 
 onMounted(()=>{
 	console.log("程序初始化完成，调用消息服务器")
+	getOneMood()
+	
+})
+const getOneMood = ()=>{
 	var uid = localStorage.getItem("uid")
 	state.user_id = uid;
 	var data = new FormData();
@@ -44,9 +48,12 @@ onMounted(()=>{
 	//获取一条别人发的心情消息
 	fetPost("/api/mood/one",data)
 	.then(res=>{
-		console.log(res)
+		// console.log(res)
+		if(res.code == 200) {
+			state.mood = res.data
+		}
 	})
-})
+}
 const showModal = ()=>{
 	state.show = true
 }
@@ -65,26 +72,12 @@ const send = ()=>{
 	state.show = false
 }
 const next = ()=>{
-
+	getOneMood()
 }
 function login(){
 	console.log("我已经登录过了")
 }
-const state = reactive({ user_id: 0 ,show:false,content:"",mood:{
-			user:{
-				username:"风清扬",
-				head:"https://bulma.io/images/placeholders/96x96.png",
-				title:"见过就好",
-				uid:1
-			},
-			data:{
-				content:"北国风光千里雪飘，望长城内外唯余茫茫\
-				大河上下顿失涛涛",
-				datetime:"2021.4.14 08:10:24",
-				id:1,
-			}
-		}})
-const store = useStore()
+const state = reactive({ user_id: 0 ,show:false,content:"",mood:null})
 </script>
 
 <style scoped>

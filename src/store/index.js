@@ -5,12 +5,16 @@ import { createStore } from 'vuex'
 const store = createStore({
   state () {
     return {
-      user_id: 0
+      user_id: 0,
+      messages:[]
     }
   },
   mutations: {
     login (state,payload) {
       state.user_id = payload.user_id
+    },
+    pushMessage(state,payload) {
+      state.messages.push(payload.message)
     }
   }
 })

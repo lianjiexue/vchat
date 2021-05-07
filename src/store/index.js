@@ -6,7 +6,11 @@ const store = createStore({
   state () {
     return {
       user_id: 0,
-      messages:[]
+      messages:[],
+      mood:null,
+      friends:[],
+      userInfo:{},
+      othermessages:[]
     }
   },
   mutations: {
@@ -15,6 +19,24 @@ const store = createStore({
     },
     pushMessage(state,payload) {
       state.messages.push(payload.message)
+    },
+    oneMood(state,payload) {
+      state.mood = payload.mood
+    },
+    setUserId(state,payload) {
+      state.user_id = payload.user_id
+    },
+    setFriends(state,payload) {
+      state.friends = payload.friends
+    },
+    setUserInfo(state, payload) {
+      state.userInfo = payload.userInfo
+    },
+    removeMessage(state,payload) {
+      state.messages.splice(payload.start,1)
+    },
+    pushOtherMessage(state,payload) {
+      state.othermessages.push(payload.message)
     }
   }
 })

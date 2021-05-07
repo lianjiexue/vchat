@@ -6,17 +6,29 @@
 		     
 		    </div>
 		</nav>
-		 <ul class="menu-list">
-		    <li><a>修改头像</a></li>
-		    <li><a>修改昵称</a></li>
-		    <li><a>设置性别</a></li>
-		    <li><a>个人介绍</a></li>
-		    <li><a><button class="button is-danger" @click="loginOut">退出</button></a></li>
-		  </ul>
+		<div style="display: flex;justify-content: center;">
+    		<div style="border-radius: 150px;width: 150px;overflow: hidden;height: 150px;">
+    			<img :src="user.head_img" style="width: 150px;height: 150px;">
+    		</div>
+    	</div>
+		<div>{{user.nickname}}</div>
+		<div>{{user.description}}</div>
+		<button class="button is-danger" @click="loginOut" style="margin:10px;">退出</button>
 	</div>
 </template>
 <script setup>
+	import {onMounted,computed} from 'vue'
+	import {useRouter} from 'vue-router'
+	import {useStore} from 'vuex'
+	const router = useRouter();
+	const store  = useStore();
+	
+	const user = computed(()=>{
+		return  store.state.userInfo;
+	})
+	console.log(user)
 	const loginOut = ()=>{
 		localStorage.setItem("uid",'')
+		router.push("/")
 	}
 </script>

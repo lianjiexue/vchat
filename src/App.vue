@@ -2,12 +2,13 @@
 	<router-view></router-view>
 </template>
 <script setup>
-	import {computed,watchEffect} from 'vue'
+	import {computed,ref} from 'vue'
 	import {useStore}  from 'vuex'
 	import ws from './ws.js'
 	import fetPost from './api.js'
 	import {data,task} from './data.js'
 	const store  = useStore();
+	
 	ws.onmessage = function(evt){
 		var msg = JSON.parse(evt.data)
 		console.log(msg)
@@ -41,6 +42,7 @@
 			task.is_connect = 0;
 	}
 	data.onChange = function(){
+		store.commit("setConnect",{is_connect:data.is_connect})
 		console.log(data)
 		console.log("链接状态变化")
 	}

@@ -81,7 +81,9 @@ const send = ()=>{
 		formdata.append("content", content)
 		fetPost("/api/mood/add",formdata)
 		.then(res=>{
-			console.log(res)
+			if (res.code == 200) {
+				document.querySelector(".textarea").innerHTML = ""
+			}
 		})
 	state.show = false
 }

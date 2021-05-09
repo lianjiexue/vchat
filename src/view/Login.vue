@@ -1,7 +1,7 @@
 <template>
 	<div class="login">
 		 <div class="navbar-brand">
-      <router-link to="/" class="navbar-item"> <img src="../assets/bulma-logo.png" width="112" height="28"></router-link>
+      <router-link to="/" class="navbar-item"> <img src="../assets/logo.png" width="112" height="28"></router-link>
     </div>
 		<form class="box">
 		  <div class="field">

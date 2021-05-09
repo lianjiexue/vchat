@@ -8,6 +8,7 @@ import UserFriend from '../view/UserFriend.vue'
 import Friend from '../view/Friend.vue'
 import Messages from '../view/Messages.vue'
 import OneUser from '../view/OneUser.vue'
+import Moods from '../view/Moods.vue'
 // route.js
 const routes = [
   { path: '/', component: Home ,name:"Home"},
@@ -20,6 +21,7 @@ const routes = [
   { path: '/Register', component:Register,name:"Register"},
   { path: '/user/info/:uid', component:UserFriend,name:"UserFriend"},
   { path: '/oneuser/:fid', component:OneUser,name:"OneUser"},
+   { path: '/moods/', component:Moods,name:"Moods"},
 ]
 const router = createRouter({
   // 4. Provide the history implementation to use. We are using the hash history for simplicity here.

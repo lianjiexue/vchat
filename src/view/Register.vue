@@ -1,7 +1,7 @@
 <template>
 	<div class="register">
 		 <div class="navbar-brand">
-      <router-link to="/" class="navbar-item"> <img src="../assets/bulma-logo.png" width="112" height="28"></router-link>
+      <router-link to="/" class="navbar-item"> <img src="../assets/logo.png" width="112" height="28"></router-link>
     </div>
 		<div class="box" onsubmit="return false">
 		  <div class="field">

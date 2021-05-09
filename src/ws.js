@@ -11,9 +11,11 @@ const reconnect = function(){
 }
 
 setInterval(function(){
+	console.log(data);
 	if (data.is_connect == 0) {
 		reconnect();
 	} else {
+		console.log(ws)
 		var obj = {};
 			obj.type = "pong"
 			ws.send(JSON.stringify(obj))

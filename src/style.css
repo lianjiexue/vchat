@@ -8,16 +8,48 @@
 	bottom:20px;
 	right:20px;
 }
+.moods{
+	padding: 10px;
+}
+.moods .mood-item{
+	padding: 10px;
+	border-bottom: 1px solid #f1f1f1
+}
+.moods .mood-item .mood-time{
+	text-align: right;
+}
 #side{
 	position: fixed;
     z-index: 999;
-    background: #fafafa;
     right: 0px;
     height: 100%;
+    width:100%;
     top: 0;
 }
+#side .menu{
+	position: fixed;
+    z-index: 999;
+    right: 0px;
+    height: 100%;
+    background:#f1f1f1;
+    top: 0;
+}
+#side .menu a {
+	color:#333;
+}
+#side .screen{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #000;
+    z-index: 99;
+    opacity: 0;
+}
+.menu-list{
+	padding:1rem;
+}
 .messages .msg-content .msgcontent{
-      border-radius: 10px;
+    border-radius: 10px;
     margin-right: 10px;
     margin-left:10px;
     padding: 15px;
@@ -31,9 +63,6 @@
 }
 .messages .msg-datetime {
 	margin:10px;
-}
-#user{
-	padding:20px;
 }
 .v-textarea{
 		display: block;

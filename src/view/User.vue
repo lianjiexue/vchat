@@ -31,7 +31,6 @@
 	const user = computed(()=>{
 		return  store.state.userInfo;
 	})
-	console.log(user)
 	const loginOut = ()=>{
 		localStorage.setItem("uid",'')
 		router.push("/")

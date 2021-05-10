@@ -39,7 +39,6 @@ import fetPost from '../api.js'
 
 const store = useStore();
 onMounted(()=>{
-	console.log("程序初始化完成，调用消息服务器")
 	getOneMood()
 	
 })
@@ -71,7 +70,6 @@ const closeModal = ()=>{
 	state.show = false
 }
 const send = ()=>{
-	console.log("发表心情")
 	var content = document.querySelector(".textarea").innerHTML
 	if(!state.user_id) {
 		return

@@ -1,5 +1,5 @@
-var baseUrl = "http://chat.daguozhensi.com"
-// var baseUrl = "http://127.0.0.1:8008"
+// var baseUrl = "http://chat.daguozhensi.com"
+var baseUrl = "http://127.0.0.1:8008"
 function fetPost(uri,body)
 {
 	var url = baseUrl+uri

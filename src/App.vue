@@ -43,7 +43,6 @@
 	}
 	data.onChange = function(){
 		store.commit("setConnect",{is_connect:data.is_connect})
-		console.log(data)
 		console.log("链接状态变化")
 	}
 	//先判断是否存在user_id
